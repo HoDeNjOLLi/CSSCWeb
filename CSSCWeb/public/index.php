@@ -25,19 +25,20 @@ $request = \Symfony\Component\HttpFoundation\Request::createFromGlobals();
 $uri = $request->getPathInfo();
 
 $context = new RequestContext();
-$context ->fromRequest($request);
+$context->fromRequest($request);
 $matcher = new UrlMatcher($routes, $context);
 
 try {
     $parameters = $matcher->match($uri);
-    $response = handleRequest($request,$parameters, $container);
+    $response = handleRequest($request, $parameters, $container);
 } catch (Routing\Exception\ResourceNotFoundException $e) {
     $response = new Response('Not Found', 404);
 }
 
 $response->send();
 
-function handleRequest($request, $parameters, $container) {
+function handleRequest($request, $parameters, $container)
+{
     if (!is_null($parameters)) {
 // Add parameters from URI to request
         foreach ($parameters as $key => $value) {
@@ -45,7 +46,7 @@ function handleRequest($request, $parameters, $container) {
         }
         $controllerMap = preg_split('/::/', $parameters['_controller']);
         $controllerClass = $controllerMap[0];
-        $action = isset($controllerMap[1]) ? $controllerMap[1] : NULL;
+        $action = isset($controllerMap[1]) ? $controllerMap[1] : null;
         $response = callController($request, $container, $controllerClass, $action);
     } else {
         throw new \Exception('No parameters found.');
@@ -53,18 +54,17 @@ function handleRequest($request, $parameters, $container) {
     return $response;
 }
 
-function callController($request, $container, $controllerClass, $action) {
+function callController($request, $container, $controllerClass, $action)
+{
     if (class_exists($controllerClass) && $action) {
         $controller = new $controllerClass($container);
         if (method_exists($controller, $action)) {
             $response = $controller->$action($request);
             return $response;
-        }
-        else {
+        } else {
             throw new \Exception('Action not found.');
         }
-    }
-    else {
+    } else {
         throw new \Exception('Controller not found.');
     }
 }

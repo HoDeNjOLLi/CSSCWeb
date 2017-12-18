@@ -10,7 +10,7 @@ $loader = new \Twig_Loader_Filesystem(realpath(dirname(__FILE__))
 $twig = new \Twig_Environment($loader, ['cache' => false, 'debug' => true]);
 
 $dbConnection = new \PDO('sqlite:' . realpath(dirname(__FILE__))
-    . '/../data/chinook.db');                                                                   // Name unserer DB eintragen!
+    . '/../data/nameUnserDB.db');                                                                   // Name unserer DB eintragen!
 
 $dbConnection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 

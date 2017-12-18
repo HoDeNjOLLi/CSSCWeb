@@ -8,8 +8,27 @@
 
 namespace App;
 
-class Model
-{
+class Model {
     protected $dbConnection;
 
+
+    function __construct($dbConnection)
+    {
+        $this->dbConnection = $dbConnection;
+    }
+
+
+
+    function returnData($var)
+    {
+        $data = [];
+        foreach ($var as $row) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
+
+
 }
+
