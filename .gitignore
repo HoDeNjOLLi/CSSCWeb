@@ -1,2 +1,4 @@
 
-CSSCWeb/.idea/
+.idea/*
+.idea/**
+.idea/*/*
