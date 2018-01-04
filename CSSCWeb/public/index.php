@@ -35,7 +35,7 @@ try {
     $response = new Response('Not Found', 404);
 }
 
-$response->send();
+
 
 function handleRequest($request, $parameters, $container)
 {
@@ -68,3 +68,5 @@ function callController($request, $container, $controllerClass, $action)
         throw new \Exception('Controller not found.');
     }
 }
+
+$response->send();

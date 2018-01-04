@@ -1,0 +1,22 @@
+{% extends "layout.html.twig" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <h2></h2>
+    <p></p>
+    <form action="#" method="post">
+        <div>
+            <h3><label for="form_title" class="required">Accountname</label></h3>
+            <input type="text" id="form_title" name="form[title]"
+                   required="required" value={{ form['title'] }}>
+            <div><br></div>
+
+            <h3><label for="form_title" class="required">Passwort</label></h3>
+            <input type="text" id="form_title" name="form[title]"
+                   required="required" value={{ form['title'] }}>
+            <div><br></div>
+        </div>
+        <button type="submit" id="form_save"
+                name="form[save]">Login
+        </button>
+    </form>
+{% endblock %}

@@ -21,6 +21,10 @@ class ComposerStaticInit22ae43fec71e8dbdbed6552076ea4d9e
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\HttpFoundation\\' => 33,
         ),
+        'F' => 
+        array (
+            'Form\\' => 5,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -43,6 +47,10 @@ class ComposerStaticInit22ae43fec71e8dbdbed6552076ea4d9e
         'Symfony\\Component\\HttpFoundation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/http-foundation',
+        ),
+        'Form\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Form',
         ),
         'App\\' => 
         array (

@@ -12,9 +12,13 @@ use Symfony\Component\Routing\RouteCollection;
 $routes = new RouteCollection();
 
 
-$routes->add('list',
+$routes->add('/',
     new Route('/',
-        ['_controller' => 'App\WebController::listAction']                      // je nachdem welchen twig wir rendern wollen
+        ['_controller' => 'App\WebController::listAction']
+    ));
+$routes->add('/form',
+    new Route('/form',
+        ['_controller' => 'Form\Controller::showFormAction']
     ));
 
 return $routes;
