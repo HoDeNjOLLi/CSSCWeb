@@ -1,0 +1,24 @@
+{% extends "layout.html.twig" %}
+{% block title %}Cases{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <div id="content">
+        <h2></h2>
+        <table>
+        {% for item in form %}
+
+                <td>
+                    <p> BILD </p>
+                    <p id="itemID">{{ item['itemID'] }}</p>
+                    <p id="title">{{ item['title'] }}</p>
+                    <p id="blogText">{{ item['blogText'] }}</p>
+                    <br>
+                </td>
+
+        {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
