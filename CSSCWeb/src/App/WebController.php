@@ -41,6 +41,15 @@ class WebController
         return new Response($html);
     }
 
+    function ImpressumAction(){
+        $html = $this->twig->render('Impressum.html.twig');
+        return new Response($html);
+    }
+
+    function TimelineAction(){
+        $html = $this->twig->render('timeline.html.twig');
+        return new Response($html);
+    }
 
 
 }

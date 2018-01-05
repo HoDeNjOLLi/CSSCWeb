@@ -1,0 +1,125 @@
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    background-color: #22292e ;
+    color: #E85C0F;
+    font-style: normal;
+    font-size: 12pt;
+    min-width: 100%;
+}
+
+h1 {
+    color: #E85C0F;
+    text-align: center;
+}
+
+h2 {
+    margin-top: -1.5%;
+    color:  #E85C0F;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+time {
+    font-size: 1.1rem;
+}
+
+p {
+    font-weight: 300;
+    font-size: 0.95rem;
+}
+
+a {
+    font-size: 0.75rem;
+}
+
+.container {
+    color: #7f8179;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+}
+
+.timeline:before {
+    z-index: -1000;
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 35px;
+    width: 2px;
+    height: 100%;
+    background:  #E85C0F;
+}
+
+@media screen and (min-width: 650px) {
+    .timeline:before {
+        left: 50%;
+    }
+}
+
+.timeline li {
+    width: 100%;
+    overflow: hidden;
+    z-index: -1000;
+    position: relative;
+}
+
+.timeline li .event {
+    width: 100%;
+    padding: 20px 20px 20px 70px;
+}
+
+@media screen and (min-width: 650px) {
+    .timeline li .event {
+        width: 50%;
+        padding: 20px 40px;
+    }
+}
+
+.timeline li:nth-child(2n) .event {
+    float: right;
+}
+
+.icon {
+    z-index: 1000;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 35px;
+    margin-top: -20px;
+    margin-left: -30px;
+    color:  #E85C0F;
+    background: #22292e;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 25px;
+    border: 2px solid  #E85C0F;
+}
+
+@media screen and (min-width: 650px) {
+    .icon {
+        left: 50%;
+        margin-left: -39px;
+    }
+}
+
+.fa {
+    padding-top: 10px;
+}

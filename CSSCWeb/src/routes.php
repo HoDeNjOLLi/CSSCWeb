@@ -29,4 +29,13 @@ $routes->add('/casesUser',
         ['_controller' => 'App\WebController::showCasesUserAction']
     ));
 
+$routes->add('/Impressum',
+    new Route('/Impressum',
+        ['_controller' => 'App\WebController::ImpressumAction']
+    ));
+$routes->add('/timeline',
+    new Route('/timeline',
+        ['_controller' => 'App\WebController::timelineAction']
+    ));
+
 return $routes;
