@@ -1,22 +1,23 @@
 {% extends "layout.html.twig" %}
-{% block title %}Login{% endblock %}
+{% block title %}Account{% endblock %}
 {% block content %}
     <h2></h2>
     <p></p>
     <form action="#" method="post">
         <div>
+
             <h3><label for="form_username" class="required">Username</label></h3>
             <input type="text" id="form_username" name="form[username]"
                    required="required" value={{ form['username'] }}>
             <div><br></div>
 
-            <h3><label for="form_password" class="required">Password</label></h3>
-            <input type="text" id="form_password" name="form[password]"
-                   required="required" value={{ form['password'] }}>
+            <h3><label for="form_credit" class="required">Credit</label></h3>
+            <input type="text" id="form_credit" name="form[credit]"
+                   required="required" value={{ form['credit'] }}>
             <div><br></div>
         </div>
         <button type="submit" id="form_save"
-                name="form[save]">Login
+                name="form[save]">Add to Balance
         </button>
     </form>
 {% endblock %}

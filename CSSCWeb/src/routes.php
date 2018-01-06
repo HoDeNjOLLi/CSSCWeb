@@ -12,9 +12,9 @@ use Symfony\Component\Routing\RouteCollection;
 $routes = new RouteCollection();
 
 
-$routes->add('/',
-    new Route('/',
-        ['_controller' => 'App\WebController::listAction']
+$routes->add('/cases',
+    new Route('/cases',
+        ['_controller' => 'App\WebController::showCasesAction']
     ));
 $routes->add('/login',
     new Route('/login',
@@ -36,6 +36,10 @@ $routes->add('/Impressum',
 $routes->add('/timeline',
     new Route('/timeline',
         ['_controller' => 'App\WebController::timelineAction']
+    ));
+$routes->add('/account',
+    new Route('/account',
+        ['_controller' => 'Form\Controller::showAccountAction']
     ));
 
 return $routes;

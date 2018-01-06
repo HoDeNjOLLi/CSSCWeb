@@ -25,7 +25,7 @@ class WebController
         $this->model = new Model($this->dbConnection);
     }
 
-    function listAction(Request $request)
+    function showCasesAction(Request $request)
     {
         $list = $this->model->getBlogPosts();
         $html = $this->twig->render('cases.html.twig',

@@ -71,4 +71,20 @@ class Model
         $stmt->execute();
     }
 
+    //TODO wie Nutzer definieren? ID ?
+    function addCredit($user,$credit)
+    {
+        // Prepare INSERT statement to SQLite3 file db
+        $insert = "UPDATE users SET credit WHERE username = $user
+                    VALUES (:credit)";
+        $stmt = $this->dbConnection->prepare($insert);
+
+        // Bind parameters to values
+        $stmt->bindParam(':credit', $user['credit']);
+
+
+        // Execute statement
+        $stmt->execute();
+    }
+
 }
