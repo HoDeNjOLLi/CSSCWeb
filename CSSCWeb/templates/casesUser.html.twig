@@ -7,17 +7,16 @@
     <div id="content">
         <h2></h2>
         <table>
-        {% for item in form %}
+            {% for item in form %}
 
                 <td>
-                    <p> BILD </p>
-                    <p id="itemID">{{ item['itemID'] }}</p>
                     <p id="title">{{ item['title'] }}</p>
-                    <p id="blogText">{{ item['blogText'] }}</p>
+                        <img src="/images/{{item['imageName']}}.png" alt="caseIcon">
+                    <button type="submit" id="form_save" name="form[save]">Open</button>  {{ item['blogText'] }}
                     <br>
                 </td>
 
-        {% endfor %}
+            {% endfor %}
         </table>
     </div>
 

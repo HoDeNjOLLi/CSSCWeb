@@ -11,22 +11,7 @@
 
                 <td>
                     <p id="title">{{ item['title'] }}</p>
-                    {% if item['imageID'] == 1 %}
-                        <img src="/images/spectrum.png" alt="spectrum">
-
-                    {% elseif item['imageID'] == 2 %}
-                        <img src="/images/spectrum2.png" alt="spectrum2">
-
-                    {% elseif item['imageID'] == 3 %}
-                        <img src="/images/huntsman.png" alt="huntsman">
-
-                    {% elseif item['imageID'] == 4 %}
-                        <img src="/images/shadow.png" alt="shadow">
-
-                    {% elseif item['imageID'] == 5 %}
-                        <img src="/images/falchion.png" alt="falchion">
-
-                    {% endif %}
+                    <img src="/images/{{item['imageName']}}.png" alt="caseIcon">
                     <button type="submit" id="form_save" name="form[save]">Open</button>  {{ item['blogText'] }}
 
                     <br>

@@ -9,7 +9,9 @@
             <input type="text" id="form_username" name="form[username]"
                    required="required" value={{ form['username'] }}>
             <div><br></div>
-
+            {% if error['username'] %}
+                <p>{{ error['username'] }}</p>
+            {% endif %}
             <h3><label for="form_password" class="required">Password</label></h3>
             <input type="text" id="form_password" name="form[password]"
                    required="required" value={{ form['password'] }}>
