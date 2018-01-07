@@ -10,10 +10,25 @@
         {% for item in form %}
 
                 <td>
-                    <p> BILD </p>
-                    <p id="itemID">{{ item['itemID'] }}</p>
                     <p id="title">{{ item['title'] }}</p>
-                    <p id="blogText">{{ item['blogText'] }}</p>
+                    {% if item['imageID'] == 1 %}
+                        <img src="/images/spectrum.png" alt="spectrum">
+
+                    {% elseif item['imageID'] == 2 %}
+                        <img src="/images/spectrum2.png" alt="spectrum2">
+
+                    {% elseif item['imageID'] == 3 %}
+                        <img src="/images/huntsman.png" alt="huntsman">
+
+                    {% elseif item['imageID'] == 4 %}
+                        <img src="/images/shadow.png" alt="shadow">
+
+                    {% elseif item['imageID'] == 5 %}
+                        <img src="/images/falchion.png" alt="falchion">
+
+                    {% endif %}
+                    <button type="submit" id="form_save" name="form[save]">Open</button>  {{ item['blogText'] }}
+
                     <br>
                 </td>
 

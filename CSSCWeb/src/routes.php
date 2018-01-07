@@ -11,7 +11,10 @@ use Symfony\Component\Routing\RouteCollection;
 
 $routes = new RouteCollection();
 
-
+$routes->add('/',
+    new Route('/',
+        ['_controller' => 'App\WebController::showCasesAction']
+    ));
 $routes->add('/cases',
     new Route('/cases',
         ['_controller' => 'App\WebController::showCasesAction']

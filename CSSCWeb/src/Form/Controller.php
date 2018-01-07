@@ -8,6 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 use App\Model;
 
+
+/* Start Server:
+php -S 127.0.0.1:4321 -t public
+http://localhost:4321/
+*/
+
+
 class Controller
 {
     protected $dbConnection;
