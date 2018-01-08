@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 $container = include __DIR__ . '/../src/container.php';
 $routes = include __DIR__ . '/../src/routes.php';
@@ -27,6 +28,13 @@ $uri = $request->getPathInfo();
 $context = new RequestContext();
 $context->fromRequest($request);
 $matcher = new UrlMatcher($routes, $context);
+
+// Get current user
+$session = $request->getSession();
+if (!$session) {
+    $session = new Session();
+}
+
 
 try {
     $parameters = $matcher->match($uri);

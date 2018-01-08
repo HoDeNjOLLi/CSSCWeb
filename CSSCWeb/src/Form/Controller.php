@@ -174,6 +174,7 @@ class Controller
 
         // Save data
         $this->model->addUser($task);
+
     }
 
     //Check LogIn Data
