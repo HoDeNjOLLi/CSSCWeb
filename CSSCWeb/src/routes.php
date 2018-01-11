@@ -13,23 +13,32 @@ $routes = new RouteCollection();
 
 $routes->add('/',
     new Route('/',
-        ['_controller' => 'App\WebController::showCasesAction']
+        ['_controller' => 'App\WebController::showCasesAction'], [], ['_permission' => 'view cases'], '',
+        [], ['GET', 'HEAD']
     ));
 $routes->add('/cases',
     new Route('/cases',
-        ['_controller' => 'App\WebController::showCasesAction']
+        ['_controller' => 'App\WebController::showCasesAction'], [], ['_permission' => 'view cases'], '',
+        [], ['GET', 'HEAD']
     ));
 $routes->add('/login',
     new Route('/login',
-        ['_controller' => 'Form\Controller::showLoginAction']
+        ['_controller' => 'Form\UserController::showLoginAction'], [], [], '',
+        [], ['GET', 'HEAD', 'POST']
+    ));
+$routes->add('/logout',
+    new Route('/logout',
+        ['_controller' => 'Form\UserController::logoutAction'], [], [], '',
+        [], ['GET', 'HEAD', 'POST']
     ));
 $routes->add('/register',
     new Route('/register',
-        ['_controller' => 'Form\Controller::showRegisterAction']
+        ['_controller' => 'Form\UserController::showRegisterAction']
     ));
 $routes->add('/casesUser',
     new Route('/casesUser',
-        ['_controller' => 'App\WebController::showCasesUserAction']
+        ['_controller' => 'App\WebController::showCasesUserAction'], [], ['_permission' => 'buy cases'], '',
+        [], ['GET', 'HEAD', 'POST']
     ));
 
 $routes->add('/Impressum',
@@ -42,7 +51,8 @@ $routes->add('/timeline',
     ));
 $routes->add('/account',
     new Route('/account',
-        ['_controller' => 'Form\Controller::showAccountAction']
+        ['_controller' => 'Form\UserController::showAccountAction'], [], ['_permission' => 'buy cases'], '',
+        [], ['GET', 'HEAD', 'POST']
     ));
 
 return $routes;

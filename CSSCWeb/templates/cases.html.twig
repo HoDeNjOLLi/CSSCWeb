@@ -5,16 +5,19 @@
 {% endblock %}
 {% block content %}
     <div id="container">
-        <h2>PENIS</h2>
+        <h3>CS:GO Cases</h3>
         <ul class="flex-con">
         {% for item in form %}
         <li class="item">
-
-                    <p id="title">{{ item['title'] }}</p>
+            {% if user.isAuthenticated() %}
+                    <p class="title">{{ item['title'] }}</p>
                     <img src="/images/{{item['imageName']}}.png" alt="caseIcon">
                     <button type="submit" id="form_save" name="form[save]">Open</button>  {{ item['blogText'] }}
-
-
+            {% else %}
+            <p class="title">{{ item['title'] }}</p>
+            <img src="/images/{{item['imageName']}}.png" alt="caseIcon">
+                <p class="prise">{{ item['blogText'] }}</p>
+            {% endif %}
         </li>
         {% endfor %}
         </ul>

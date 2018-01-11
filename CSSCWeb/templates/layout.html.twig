@@ -11,9 +11,16 @@
 <div id="menu">
     <div id="name"><h1><a href="/cases">CSSC WEB</a></h1></div>
     <ul id="nav">
+        {% if user.isAuthenticated() %}
+        <li><a href="/cases">Cases</a></li>
+        <li><a href="/account">Account</a></li>
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/register">Register</a></li>
+        {% else %}
         <li><a href="/cases">Cases</a></li>
         <li><a href="/login">Login</a></li>
         <li><a href="/register">Register</a></li>
+        {% endif %}
     </ul>
 </div>
 <div id="content">{% block content %}{% endblock %}</div>

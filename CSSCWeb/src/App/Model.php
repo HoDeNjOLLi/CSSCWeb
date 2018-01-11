@@ -71,6 +71,37 @@ class Model
         $stmt->execute();
     }
 
+    function getUser($username)
+    {
+       $query ="SELECT * FROM users WHERE username = :username";
+       $stmt = $this->dbConnection->prepare($query);
+        // Bind parameters to values
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $row;
+    }
+
+    function isValidUser($username, $password)
+    {
+        //var_dump($username, $password);
+        //exit;
+        $user = $this->getUser($username);
+
+        if (isset($user['username'])) {
+            return password_verify($password, $user['password']);
+        }
+        return false;
+    }
+
+    function getPermissions($username)
+    {
+        // @TODO: fetch from DB
+        return ['buy cases'];
+    }
+
+
+
     //TODO wie Nutzer definieren? ID ?
     function addCredit($user,$credit)
     {

@@ -27,17 +27,22 @@ class WebController
 
     function showCasesAction(Request $request)
     {
+
         $list = $this->model->getBlogPosts();
-        $html = $this->twig->render('cases.html.twig',
-            ['form' => $list]);
+        $user = $request->attributes->get('user');
+        $flash = $request->attributes->get('flash');
+        $html = $this->twig->render('cases.html.twig', ['form' => $list,'user' => $user, 'flash' => $flash]);
+
         return new Response($html);
     }
 
     function showCasesUserAction(Request $request)
     {
         $list = $this->model->getBlogPosts();
+        $user = $request->attributes->get('user');
+        $flash = $request->attributes->get('flash');
         $html = $this->twig->render('casesUser.html.twig',
-            ['form' => $list]);
+            ['form' => $list, 'user' => $user, 'flash' => $flash]);
         return new Response($html);
     }
 

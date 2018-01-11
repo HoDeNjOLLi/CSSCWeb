@@ -4,20 +4,20 @@
     {{ parent() }}
 {% endblock %}
 {% block content %}
-    <div id="content">
-        <h2></h2>
-        <table>
+    <div id="container">
+        <h3>CS:GO Cases</h3>
+        <ul class="flex-con">
             {% for item in form %}
+                <li class="item">
 
-                <td>
                     <p id="title">{{ item['title'] }}</p>
-                        <img src="/images/{{item['imageName']}}.png" alt="caseIcon">
+                    <img src="/images/{{item['imageName']}}.png" alt="caseIcon">
                     <button type="submit" id="form_save" name="form[save]">Open</button>  {{ item['blogText'] }}
-                    <br>
-                </td>
 
+
+                </li>
             {% endfor %}
-        </table>
+        </ul>
     </div>
 
 {% endblock %}

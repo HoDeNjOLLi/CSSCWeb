@@ -14,6 +14,7 @@ use Symfony\Component\Routing;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpKernel;
 
 $container = include __DIR__ . '/../src/container.php';
 $routes = include __DIR__ . '/../src/routes.php';
@@ -30,10 +31,15 @@ $context->fromRequest($request);
 $matcher = new UrlMatcher($routes, $context);
 
 // Get current user
-$session = $request->getSession();
-if (!$session) {
-    $session = new Session();
-}
+$session = getSession($request);
+$user = App\User::getFromSession($container, $session);
+// Add user to request
+$request->attributes->set('user', $user);
+
+//// Handle flash message
+//$flash = $session->get('flash');
+//$request->attributes->set('flash', $flash);
+//$session->remove('flash');
 
 
 try {
@@ -43,7 +49,13 @@ try {
     $response = new Response('Not Found', 404);
 }
 
-
+//// Check permission
+//$options = $routes->get($parameters['_route'])->getOptions();
+//if (isset($options['_permission'])) {
+//    if (!$user->hasPermission($options['_permission'])) {
+//        throw new HttpKernel\Exception\AccessDeniedHttpException;
+//    }
+//}
 
 function handleRequest($request, $parameters, $container)
 {
@@ -77,4 +89,17 @@ function callController($request, $container, $controllerClass, $action)
     }
 }
 
+dump($session);
+
 $response->send();
+
+function getSession(Request $request)
+{
+    $session = $request->getSession();
+    if (!$request->getSession()) {
+        $session = new Session();
+        $request->setSession($session);
+    }
+    $session->start();
+    return $session;
+}
