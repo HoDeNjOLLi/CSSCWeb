@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="blog" uuid="b8bf6515-360d-42c3-adb9-c2ae03caef62">
+    <data-source source="LOCAL" name="blog" uuid="618c370a-4f50-419f-8582-ae1685118d00">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>SQLite</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\GitHub\CSSCWeb\CSSCWeb\data\blog.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\GitHub\CSSCWeb\data\blog.db</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
