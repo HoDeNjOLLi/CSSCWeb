@@ -70,7 +70,7 @@ class UserController
             // Redirect to list
             return new RedirectResponse('/cases');
         }
-        
+
         // Render form
         $html = $this->twig->render('login.html.twig',
             ['form' => $formData, 'error' => $formError]);
@@ -119,7 +119,7 @@ class UserController
         $valid = false;
 
         if ($request->getMethod() !== 'POST') {
-            $formData = $this->getFormDefaults();
+            $formData = $this->getFormDefaults($request);
         } else {
             $formData = $request->get('form');
             list($valid, $formError) = $this->checkCreditEntry($request,
@@ -312,6 +312,7 @@ class UserController
         $session = $request->getSession();
         if ($this->model->isValidUser($formData['username'], $formData['password'])) {
             $session->set('username', $formData['username']);
+            $session->set('flash', 'Login successful!');
             return true;
         } else {
             $session->remove('username');
@@ -320,16 +321,17 @@ class UserController
     }
 
 
+
     //Save User Data
     protected function saveUserData($request, $formData)
     {
-                   // Prepare data
-            $task['username'] = $formData['username'];
-            $task['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);
+        // Prepare data
+        $task['username'] = $formData['username'];
+        $task['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);
 
-            // Save data
-            $this->model->addUser($task);
-            }
+        // Save data
+        $this->model->addUser($task);
+    }
 
 
 }
