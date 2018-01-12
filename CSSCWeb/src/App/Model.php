@@ -88,9 +88,9 @@ class Model
 
         if ($username == null) {
             error_log(print_r($username, true));
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
 

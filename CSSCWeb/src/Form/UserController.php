@@ -273,6 +273,11 @@ class UserController
             $valid = false;
             $formError['password'] = "Das Passwort muss mindestens 4 Zeichen lang sein.";
         }
+        if ($this->model->isValidUsername($formData['username'])) {
+
+            $valid = false;
+            $formError['password'] = "Username is already existing.";
+        }
         return [$valid, $formError];
 
 //        $result = $this->dbConnection->query(
