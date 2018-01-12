@@ -45,9 +45,9 @@ $routes->add('/Impressum',
     new Route('/Impressum',
         ['_controller' => 'App\WebController::ImpressumAction']
     ));
-$routes->add('/timeline',
+$routes->add('/doku',
     new Route('/timeline',
-        ['_controller' => 'App\WebController::timelineAction']
+        ['_controller' => 'App\WebController::dokuAction']
     ));
 $routes->add('/account',
     new Route('/account',

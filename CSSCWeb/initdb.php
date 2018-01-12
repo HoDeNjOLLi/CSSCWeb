@@ -4,7 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use App\Model;
 
 
-$dbConnection = new \PDO('sqlite:' . realpath(dirname(__FILE__)) . '/data/blog.db');
+$dbConnection = new \PDO('sqlite:' . realpath(dirname(__FILE__)) . '/data/CSSCWeb.db');
 $dbConnection->setAttribute(\PDO::ATTR_ERRMODE,
     \PDO::ERRMODE_EXCEPTION);
 

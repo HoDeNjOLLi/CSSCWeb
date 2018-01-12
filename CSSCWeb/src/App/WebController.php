@@ -51,8 +51,8 @@ class WebController
         return new Response($html);
     }
 
-    function TimelineAction(){
-        $html = $this->twig->render('timeline.html.twig');
+    function dokuAction(){
+        $html = $this->twig->render('doku.html.twig');
         return new Response($html);
     }
 

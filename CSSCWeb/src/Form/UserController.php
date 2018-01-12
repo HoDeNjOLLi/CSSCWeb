@@ -38,6 +38,8 @@ class UserController
         return new RedirectResponse('/cases');
     }
 
+
+    //Show Login Site
     function showLoginAction(Request $request)
     {
         $formData = [];
@@ -52,9 +54,10 @@ class UserController
             }
         } else {
             $formData = $request->get('form');
-            list($valid, $formError) = $this->isFormDataValid($request,
+            list($valid, $formError) = $this->isLoginDataValid($request,
                 $formData);
         }
+
 
         // Handle valid post
         if ($request->getMethod() == 'POST' && $valid && $this->saveFormData($request, $formData)) {
@@ -68,8 +71,6 @@ class UserController
 
         return new Response($html);
     }
-
-
 
 
 
@@ -88,11 +89,12 @@ class UserController
             }
         } else {
             $formData = $request->get('form');
-            list($valid, $formError) = $this->isFormDataValid($request,
+            list($valid, $formError) = $this->isRegisterDataValid($request,
                 $formData);
         }// Handle valid post
         if ($request->getMethod() == 'POST' && $valid) {
             $this->saveUserData($request, $formData);
+
             // Redirect to list
             return new RedirectResponse('/cases');
         }
@@ -103,33 +105,9 @@ class UserController
         return new Response($html);
     }
 
-    //Check Register Data
-    function checkRegister($request, $formData)
-    {
-        $valid = true;
-        $formError = [];
-
-        $result = $this->dbConnection->query(
-            'SELECT * FROM users');
-        $data = [];
-        foreach ($result as $row) {
-            $data[] = $row;
-
-            if ($row['username'] == $formData['username']) {
-                error_log(print_r("Username already taken", true));
-                $formError['username'] = "Username already taken";
-                $valid = false;
-            }
-        }
-        if ($valid == true) {
-            error_log(print_r("Username available", true));
-        }
-
-        return [$valid, $formError];
-    }
 
 
-    //Account Site
+    // Show Account Site
     function showAccountAction(Request $request)
     {
         $formError = [];
@@ -176,11 +154,7 @@ class UserController
     }
 
 
-    /**
-     * @param $formData
-     *
-     * @return mixed
-     */
+
     protected function getFormDefaults(Request $request)
     {
         $formData = [];
@@ -188,9 +162,7 @@ class UserController
         return $formData;
     }
 
-    /*
-     * @See: http://stackoverflow.com/questions/6287903/how-to-properly-add-csrf-token-using-php
-     */
+
     function createToken()
     {
         if (function_exists('random_bytes')) {
@@ -199,6 +171,7 @@ class UserController
             return bin2hex(openssl_random_pseudo_bytes(32));
         }
     }
+
 
     function getToken(Request $request)
     {
@@ -212,7 +185,7 @@ class UserController
 
 
 
-    protected function isFormDataValid(Request $request, $formData)
+    protected function isLoginDataValid(Request $request, $formData)
     {
         $valid = true;
         $formError = [];
@@ -228,19 +201,103 @@ class UserController
         }
         // Check data
         if ((!isset($formData['username']))
-            || (strlen($formData['username']) < 3)
+            || (strlen($formData['username']) == 0)
         ) {
             $valid = false;
             $formError['username']
-                = "Der Benutzername muss mindestens 3 Zeichen lang sein.";
+                = "Bitte geben Sie einen Benutzername ein.";
         }
-        if ((!isset($formData['password']))
-            || (strlen($formData['password']) < 3)
+        if ((!isset($formData['username']))
+            || (strlen($formData['username']) < 4)
         ) {
             $valid = false;
-            $formError['password'] = "Das Passwort ist erforderlich.";
+            $formError['username']
+                = "Der Benutzername muss mindestens 4 Zeichen lang sein.";
+        }
+        if ((!isset($formData['password']))
+            || (strlen($formData['password']) == 0)
+        ) {
+            $valid = false;
+            $formError['username']
+                = "Bitte geben Sie eine Passwort ein.";
+        }
+        if ((!isset($formData['password']))
+            || (strlen($formData['password']) < 4)
+        ) {
+            $valid = false;
+            $formError['password'] = "Das Passwort muss mindestens 4 Zeichen lang sein.";
         }
         return [$valid, $formError];
+    }
+
+    //Check Register Data
+    function isRegisterDataValid($request, $formData)
+    {
+        $valid = true;
+        $formError = [];
+        // Check token
+        $token = $this->getToken($request);
+        if ((!isset($formData['token']))
+            || (!hash_equals($token,
+                $formData['token']))
+        ) {
+            $valid = false;
+            $formError['token'] = 'Bad token';
+            throw new \Exception('Bad CSRF token.');
+        }
+
+        // Check data
+        if ((!isset($formData['username']))
+            || (strlen($formData['username']) == 0)
+        ) {
+            $valid = false;
+            $formError['username']
+                = "Bitte geben Sie einen Benutzername ein.";
+        }
+        if ((!isset($formData['username']))
+            || (strlen($formData['username']) < 4)
+        ) {
+            $valid = false;
+            $formError['username']
+                = "Der Benutzername muss mindestens 4 Zeichen lang sein.";
+        }
+        if ((!isset($formData['password']))
+            || (strlen($formData['password']) == 0)
+        ) {
+            $valid = false;
+            $formError['username']
+                = "Bitte geben Sie eine Passwort ein.";
+        }
+        if ((!isset($formData['password']))
+            || (strlen($formData['password']) < 4)
+        ) {
+            $valid = false;
+            $formError['password'] = "Das Passwort muss mindestens 4 Zeichen lang sein.";
+        }
+        if($this->model->isValidUsername($formData['username'])){
+
+            $valid = false;
+            $formError['username'] = "Der Benutzername ist schon vergeben!";
+        }
+        return [$valid, $formError];
+
+//        $result = $this->dbConnection->query(
+//            'SELECT * FROM users');
+//        $data = [];
+//        foreach ($result as $row) {
+//            $data[] = $row;
+//
+//            if ($row['username'] == $formData['username']) {
+//                error_log(print_r("Username already taken", true));
+//                $formError['username'] = "Username already taken";
+//                $valid = false;
+//            }
+//        }
+//        if ($valid == true) {
+//            error_log(print_r("Username available", true));
+//        }
+//
+//        return [$valid, $formError];
     }
 
 
@@ -262,13 +319,13 @@ class UserController
     protected function saveUserData($request, $formData)
     {
         // Prepare data
-        $task['username'] = $formData['username'];
-        $task['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);
+            $task['username'] = $formData['username'];
+            $task['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);
 
-        // Save data
-        $this->model->addUser($task);
+            // Save data
+            $this->model->addUser($task);
 
     }
 
-
 }
+

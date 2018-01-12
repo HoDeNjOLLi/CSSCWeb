@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="blog" uuid="618c370a-4f50-419f-8582-ae1685118d00">
+    <data-source name="CSSCWeb" uuid="ff516215-6e8e-46c4-8eeb-682ddb2f5eb5">
       <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <auth-required>false</auth-required>

@@ -82,6 +82,21 @@ class Model
         return $row;
     }
 
+
+    function isValidUsername($username)
+    {
+        $user = $this->getUser($username);
+
+        if ($user == null) {
+            error_log(print_r($username, true));
+            return false;
+        }
+        return true;
+    }
+
+
+
+
     function isValidUser($username, $password)
     {
         //var_dump($username, $password);
