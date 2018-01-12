@@ -70,7 +70,7 @@ class UserController
             // Redirect to list
             return new RedirectResponse('/cases');
         }
-        
+
         // Render form
         $html = $this->twig->render('login.html.twig',
             ['form' => $formData, 'error' => $formError]);
@@ -325,15 +325,21 @@ class UserController
     //Save User Data
     protected function saveUserData($request, $formData)
     {
+<<<<<<< HEAD
         $session = $request->getSession();
         $session->set('flash', 'Registration successful!');
                    // Prepare data
             $task['username'] = $formData['username'];
             $task['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);
+=======
+        // Prepare data
+        $task['username'] = $formData['username'];
+        $task['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);
+>>>>>>> 942fb1a47ebf55ec14fcdfd835104d8dbbd5cd8d
 
-            // Save data
-            $this->model->addUser($task);
-            }
+        // Save data
+        $this->model->addUser($task);
+    }
 
 
 }
