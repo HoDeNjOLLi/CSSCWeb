@@ -65,6 +65,7 @@ class UserController
             // Redirect to list
             return new RedirectResponse('/cases');
         }
+        
         // Render form
         $html = $this->twig->render('login.html.twig',
             ['form' => $formData, 'error' => $formError]);

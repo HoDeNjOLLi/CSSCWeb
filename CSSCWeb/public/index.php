@@ -36,10 +36,10 @@ $user = App\User::getFromSession($container, $session);
 // Add user to request
 $request->attributes->set('user', $user);
 
-//// Handle flash message
-//$flash = $session->get('flash');
-//$request->attributes->set('flash', $flash);
-//$session->remove('flash');
+// Handle flash message
+$flash = $session->get('flash');
+$request->attributes->set('flash', $flash);
+$session->remove('flash');
 
 
 try {
