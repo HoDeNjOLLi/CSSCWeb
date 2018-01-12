@@ -119,7 +119,7 @@ class UserController
         $valid = false;
 
         if ($request->getMethod() !== 'POST') {
-            $formData = $this->getFormDefaults();
+            $formData = $this->getFormDefaults($request);
         } else {
             $formData = $request->get('form');
             list($valid, $formError) = $this->checkCreditEntry($request,
@@ -312,12 +312,14 @@ class UserController
         $session = $request->getSession();
         if ($this->model->isValidUser($formData['username'], $formData['password'])) {
             $session->set('username', $formData['username']);
+            $session->set('flash', 'Login successful!');
             return true;
         } else {
             $session->remove('username');
             return false;
         }
     }
+
 
 
     //Save User Data
