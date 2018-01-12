@@ -23,6 +23,11 @@
         {% endif %}
     </ul>
 </div>
+{% if flash %}
+    <div class="Flash">
+        {{ flash }}
+    </div>
+{% endif %}
 <div id="content">{% block content %}{% endblock %}</div>
 
 
