@@ -81,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Form/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+            <state relative-caret-position="582">
+              <caret line="335" column="13" lean-forward="true" selection-start-line="335" selection-start-column="13" selection-end-line="335" selection-end-column="13" />
               <folding>
                 <element signature="e#106#120#0#PHP" expanded="true" />
               </folding>
@@ -118,8 +118,8 @@
       <file leaf-file-name="Model.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/Model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+            <state relative-caret-position="278">
+              <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
               <folding>
                 <marker date="1515774263273" expanded="true" signature="276:303" ph="CREATE TABLE... blogItems" />
                 <marker date="1515774263273" expanded="true" signature="276:420" ph="CREATE TABLE... cases" />
@@ -147,14 +147,14 @@
       <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="476">
+              <caret line="29" column="11" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
@@ -372,7 +372,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45586000" />
+    <option name="totallyTimeSpent" value="46263000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -736,51 +736,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/Controller.php" />
-    <entry file="file://$PROJECT_DIR$/src/App/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding>
-            <marker date="1515774263273" expanded="true" signature="276:303" ph="CREATE TABLE... blogItems" />
-            <marker date="1515774263273" expanded="true" signature="276:420" ph="CREATE TABLE... cases" />
-            <marker date="1515774263273" expanded="true" signature="524:543" ph="SELECT * FRO... cases" />
-            <marker date="1515774263273" expanded="true" signature="778:890" ph="INSERT INTO cases... " />
-            <marker date="1515774263273" expanded="true" signature="1318:1441" ph="INSERT INTO users... " />
-            <marker date="1515774263273" expanded="true" signature="1837:1883" ph="SELECT * FRO... users" />
-            <marker date="1515774263273" expanded="true" signature="2941:2982" ph="UPDATE users... " />
-            <marker date="1515774263273" expanded="true" signature="3008:3024" ph="VALUES (:cre... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/doku.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/register.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -813,13 +772,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding>
+            <marker date="1515774263273" expanded="true" signature="276:303" ph="CREATE TABLE... blogItems" />
+            <marker date="1515774263273" expanded="true" signature="276:420" ph="CREATE TABLE... cases" />
+            <marker date="1515774263273" expanded="true" signature="524:543" ph="SELECT * FRO... cases" />
+            <marker date="1515774263273" expanded="true" signature="778:890" ph="INSERT INTO cases... " />
+            <marker date="1515774263273" expanded="true" signature="1318:1441" ph="INSERT INTO users... " />
+            <marker date="1515774263273" expanded="true" signature="1837:1883" ph="SELECT * FRO... users" />
+            <marker date="1515774263273" expanded="true" signature="2941:2982" ph="UPDATE users... " />
+            <marker date="1515774263273" expanded="true" signature="3008:3024" ph="VALUES (:cre... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+        <state relative-caret-position="582">
+          <caret line="335" column="13" lean-forward="true" selection-start-line="335" selection-start-column="13" selection-end-line="335" selection-end-column="13" />
           <folding>
             <element signature="e#106#120#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="29" column="11" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

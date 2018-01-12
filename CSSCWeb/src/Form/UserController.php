@@ -325,6 +325,8 @@ class UserController
     //Save User Data
     protected function saveUserData($request, $formData)
     {
+        $session = $request->getSession();
+        $session->set('flash', 'Registration successful!');
                    // Prepare data
             $task['username'] = $formData['username'];
             $task['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);
