@@ -22,10 +22,13 @@
         <li><a href="/register">Register</a></li>
         {% endif %}
     </ul>
+    {% if flash %}
+        <div class="Flash">
+            {{ flash }}
+        </div>
+    {% endif %}
 </div>
 <div id="content">{% block content %}{% endblock %}</div>
-
-
 
 <footer>
     <div class="footer">
