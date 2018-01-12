@@ -15,6 +15,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing;
 
+/*
+ * php -S 127.0.0.1:4321 -t public
+ * http://localhost:4321/
+ */
+
 class UserController
 {
     protected $container;
