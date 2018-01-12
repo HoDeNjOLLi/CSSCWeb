@@ -16,18 +16,17 @@ class Model
     function initDB()
     {
         $this->dbConnection->exec(
-            "CREATE TABLE IF NOT EXISTS blogItems (
+            "CREATE TABLE IF NOT EXISTS cases (
             id INTEGER PRIMARY KEY,
             title TEXT,
-            blogText TEXT,
-            publishDate TEXT,
+            price TEXT,
             imageID TEXT)");
     }
 
     function getBlogPosts()
     {
         $result = $this->dbConnection->query(
-            'SELECT * FROM blogItems');
+            'SELECT * FROM cases');
         $data = [];
         foreach ($result as $row) {
             $data[] = $row;
@@ -38,15 +37,14 @@ class Model
     function addItem($item)
     {
         // Prepare INSERT statement to SQLite3 file db
-        $insert = "INSERT INTO blogItems
-                  (title, publishDate, blogText,imageID)
-                    VALUES (:title, :publishDate, :blogText, :imageID)";
+        $insert = "INSERT INTO cases
+                  (title, price,imageID)
+                    VALUES (:title, :price, :imageID)";
         $stmt = $this->dbConnection->prepare($insert);
 
         // Bind parameters to values
         $stmt->bindParam(':title', $item['title']);
-        $stmt->bindParam(':publishDate', $item['publishDate']);
-        $stmt->bindParam(':blogText', $item['blogText']);
+        $stmt->bindParam(':price', $item['price']);
         $stmt->bindParam(':imageID', $item['imageID']);
 
 
@@ -58,13 +56,14 @@ class Model
     {
         // Prepare INSERT statement to SQLite3 file db
         $insert = "INSERT INTO users
-                  (username, password)
-                    VALUES (:username, :password)";
+                  (username, password, credit)
+                    VALUES (:username, :password, :credit)";
         $stmt = $this->dbConnection->prepare($insert);
-
         // Bind parameters to values
         $stmt->bindParam(':username', $user['username']);
         $stmt->bindParam(':password', $user['password']);
+        $credit = 0;
+        $stmt->bindParam(':credit', $credit);
 
 
         // Execute statement
@@ -87,11 +86,11 @@ class Model
     {
         $user = $this->getUser($username);
 
-        if ($user == null) {
+        if ($username == null) {
             error_log(print_r($username, true));
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
 

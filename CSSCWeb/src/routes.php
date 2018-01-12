@@ -46,9 +46,10 @@ $routes->add('/Impressum',
         ['_controller' => 'App\WebController::ImpressumAction']
     ));
 $routes->add('/doku',
-    new Route('/timeline',
+    new Route('/doku',
         ['_controller' => 'App\WebController::dokuAction']
     ));
+
 $routes->add('/account',
     new Route('/account',
         ['_controller' => 'Form\UserController::showAccountAction'], [], ['_permission' => 'buy cases'], '',

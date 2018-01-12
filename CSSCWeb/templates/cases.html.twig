@@ -11,12 +11,12 @@
         <li class="item">
             {% if user.isAuthenticated() %}
                     <p class="title">{{ item['title'] }}</p>
-                    <img src="/images/{{item['imageName']}}.png" alt="caseIcon">
-                    <button type="submit" id="form_save" name="form[save]">Open</button>  {{ item['blogText'] }}
+                    <img src="/images/{{item['imageName']}}" alt="caseIcon">
+                    <button type="submit" id="form_save" name="form[save]">Open</button>  {{ item['price'] }}
             {% else %}
             <p class="title">{{ item['title'] }}</p>
-            <img src="/images/{{item['imageName']}}.png" alt="caseIcon">
-                <p class="prise">{{ item['blogText'] }}</p>
+            <img src="/images/{{item['imageName']}}" alt="caseIcon">
+                <p class="prise">{{ item['price'] }}</p>
             {% endif %}
         </li>
         {% endfor %}

@@ -94,7 +94,6 @@ class UserController
         }// Handle valid post
         if ($request->getMethod() == 'POST' && $valid) {
             $this->saveUserData($request, $formData);
-
             // Redirect to list
             return new RedirectResponse('/cases');
         }
@@ -274,11 +273,6 @@ class UserController
             $valid = false;
             $formError['password'] = "Das Passwort muss mindestens 4 Zeichen lang sein.";
         }
-        if($this->model->isValidUsername($formData['username'])){
-
-            $valid = false;
-            $formError['username'] = "Der Benutzername ist schon vergeben!";
-        }
         return [$valid, $formError];
 
 //        $result = $this->dbConnection->query(
@@ -318,14 +312,13 @@ class UserController
     //Save User Data
     protected function saveUserData($request, $formData)
     {
-        // Prepare data
+                   // Prepare data
             $task['username'] = $formData['username'];
             $task['password'] = password_hash($formData['password'], PASSWORD_DEFAULT);
 
             // Save data
             $this->model->addUser($task);
+            }
 
-    }
 
 }
-
